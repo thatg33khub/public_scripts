@@ -1,12 +1,13 @@
 #!/bin/bash
 
-# The script will add the following commands if they do not already exist in the .bashrc file
+# Add entries if they do not exist already
 
 # package managers
 grep -qxF "alias dnf='sudo dnf'" ~/.bashrc || echo "alias dnf='sudo dnf'" >> ~/.bashrc
+grep -qxF "alias apt='sudo apt'" ~/.bashrc || echo "alias apt='sudo apt'" >> ~/.bashrc
 grep -qxF "alias apt-get='sudo apt-get'" ~/.bashrc || echo "alias apt-get='sudo apt-get'" >> ~/.bashrc
 grep -qxF "alias pacman='sudo pacman'" ~/.bashrc || echo "alias pacman='sudo pacman'" >> ~/.bashrc
-grep -qxF "alias nala='sudo nala'" ~/.bashrc || echo "alias nala='sudo nala'" >> ~/.bashrc
+grep -qxF "alias nala='sudo zypper'" ~/.bashrc || echo "alias nala='sudo zypper'" >> ~/.bashrc
 
 # system
 grep -qxF "alias systemctl='sudo systemctl'" ~/.bashrc || echo "alias systemctl='sudo systemctl'" >> ~/.bashrc
@@ -25,4 +26,4 @@ grep -qxF "alias ll='ls -alhF --color=auto'" ~/.bashrc || echo "alias ll='ls -al
 grep -qxF "alias docker='sudo docker'" ~/.bashrc || echo "alias docker='sudo docker'" >> ~/.bashrc
 grep -qxF "alias docker-compose='sudo docker-compose'" ~/.bashrc || echo "alias docker-compose='sudo docker-compose'" >> ~/.bashrc
 
-
+grep -qxF "neofetch" ~/.bashrc || echo "neofetch" >> ~/.bashrc
