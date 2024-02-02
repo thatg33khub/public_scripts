@@ -11,6 +11,7 @@ debian_automated_docker_install.sh
 
 mount_network_shares.sh
     Will mount network drives by interactively entering the IP, username and password of the SMB host
+    After you enter the variables, the script will fetch the list of available shares on the host and ask if you want to mount them, one by one.
 
 start-stop-restart_all_containers.sh
     Will do what the name says
