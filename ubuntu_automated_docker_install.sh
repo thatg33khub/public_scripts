@@ -40,7 +40,7 @@ echo "make file executable"
 sudo chmod +x /usr/local/bin/docker-compose
 
 echo "check install"
-docker compose --version
+docker compose version
 
 echo " "
 echo "# =============================="
