@@ -24,8 +24,8 @@ CONTAINER=$(docker ps --format '{{.Names}}:{{.Image}}' | grep 'mysql\|mariadb' |
 echo $TIME
 echo $CONTAINER
 
-if [ ! -d $DB_BACKUPDIR ]; then
-    mkdir -p $DB_BACKUPDIR
+if [ ! -d $BACKUPDIR ]; then
+    mkdir -p $BACKUPDIR
 fi
 
 for i in $CONTAINER; do
@@ -34,11 +34,11 @@ for i in $CONTAINER; do
 
     docker exec -e MYSQL_DATABASE=$MYSQL_DATABASE -e MYSQL_PWD=$MYSQL_PWD \
         $i /usr/bin/mysqldump -u root $MYSQL_DATABASE \
-        | gzip > $DB_BACKUPDIR/$i-$MYSQL_DATABASE-$(date +"%Y%m%d%H%M").sql.gz
+        | gzip > $BACKUPDIR/$i-$MYSQL_DATABASE-$(date +"%Y%m%d%H%M").sql.gz
 
-    OLD_BACKUPS=$(ls -1 $DB_BACKUPDIR/$i*.gz |wc -l)
+    OLD_BACKUPS=$(ls -1 $BACKUPDIR/$i*.gz |wc -l)
     if [ $OLD_BACKUPS -gt $DAYS ]; then
-        find $DB_BACKUPDIR -name "$i*.gz" -daystart -mtime +$DAYS -delete
+        find $BACKUPDIR -name "$i*.gz" -daystart -mtime +$DAYS -delete
     fi
 done
 
@@ -50,11 +50,11 @@ echo $BITWARDEN_CONTAINER
 
 for i in $BITWARDEN_CONTAINER; do
     docker exec  $i /usr/bin/sqlite3 data/db.sqlite3 .dump \
-        | gzip > $DB_BACKUPDIR/$i-$(date +"%Y%m%d%H%M").sql.gz
+        | gzip > $BACKUPDIR/$i-$(date +"%Y%m%d%H%M").sql.gz
 
-    OLD_BITWARDEN_BACKUPS=$(ls -1 $DB_BACKUPDIR/$i*.gz |wc -l)
+    OLD_BITWARDEN_BACKUPS=$(ls -1 $BACKUPDIR/$i*.gz |wc -l)
     if [ $OLD_BITWARDEN_BACKUPS -gt $DAYS ]; then
-        find $DB_BACKUPDIR -name "$i*.gz" -daystart -mtime +$DAYS -delete
+        find $BACKUPDIR -name "$i*.gz" -daystart -mtime +$DAYS -delete
     fi
 done
 
