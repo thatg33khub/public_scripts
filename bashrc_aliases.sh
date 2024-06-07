@@ -26,4 +26,4 @@ grep -qxF "alias ll='ls -alhF --color=auto'" ~/.bashrc || echo "alias ll='ls -al
 grep -qxF "alias docker='sudo docker'" ~/.bashrc || echo "alias docker='sudo docker'" >> ~/.bashrc
 grep -qxF "alias docker-compose='sudo docker-compose'" ~/.bashrc || echo "alias docker-compose='sudo docker-compose'" >> ~/.bashrc
 
-grep -qxF "neofetch" ~/.bashrc || echo "neofetch" >> ~/.bashrc
+grep -qxF "fastfetch" ~/.bashrc || echo "fastfetch" >> ~/.bashrc
