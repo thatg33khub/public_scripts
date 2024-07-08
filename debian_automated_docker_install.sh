@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # SET VARIABLES
-$VERSION=v2.24.5
+$VERSION=v2.28.1
 
 echo "======================================"
 echo " INSTALLING DOCKER "
