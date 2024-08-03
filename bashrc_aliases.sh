@@ -7,7 +7,7 @@ grep -qxF "alias dnf='sudo dnf'" ~/.bashrc || echo "alias dnf='sudo dnf'" >> ~/.
 grep -qxF "alias apt='sudo apt'" ~/.bashrc || echo "alias apt='sudo apt'" >> ~/.bashrc
 grep -qxF "alias apt-get='sudo apt-get'" ~/.bashrc || echo "alias apt-get='sudo apt-get'" >> ~/.bashrc
 grep -qxF "alias pacman='sudo pacman'" ~/.bashrc || echo "alias pacman='sudo pacman'" >> ~/.bashrc
-grep -qxF "alias nala='sudo zypper'" ~/.bashrc || echo "alias nala='sudo zypper'" >> ~/.bashrc
+grep -qxF "alias zypper='sudo zypper'" ~/.bashrc || echo "alias zypper='sudo zypper'" >> ~/.bashrc
 
 # system
 grep -qxF "alias systemctl='sudo systemctl'" ~/.bashrc || echo "alias systemctl='sudo systemctl'" >> ~/.bashrc
